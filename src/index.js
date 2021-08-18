@@ -1,7 +1,10 @@
 import React, {useEffect, useState} from 'react'
 import { View, Text, StyleSheet, FlatList, ActivityIndicator, ScrollView, SafeAreaView } from 'react-native';
+import Detail from './screens/DetailScreen/Detail';
+import Boxes from './screens/MainScreen/Boxes/Boxes';
+import DailyNews from './screens/MainScreen/DailyNews/DailyNews';
 
-export default ServiceApi = () => {
+export default index = () =>{
     const [isLoading, setLoading] = useState(true);
     const [data, setData] = useState([]);
 
@@ -22,20 +25,26 @@ export default ServiceApi = () => {
       }, []);
     
       return (
-        <View style={{ flex: 1, padding: 24 }}>
-        
+        // <View style={{ flex: 1, padding: 24 }}>
+        <>
           {isLoading ? <ActivityIndicator/> : (
-            <FlatList
-              data = {data}
-              keyExtractor={({ id }, index) => id}
-              renderItem={({ item }) => (
-                <Text>{item.id} {item.title.rendered}</Text>
-              )}
-            />
+            // <FlatList
+            //   data = {data}
+            //   keyExtractor={({ id }, index) => id}
+            //   renderItem={({ item }) => (
+            //     <Text>{item.id} {item.title.rendered}</Text>
+            //   )}
+            // />
+            <>
+            <DailyNews data = {data} />
+
            
-      
+           <Boxes data = {data} />
+           <Detail data = {data} />
+            </>
           )}
-         
-         </View>
+          </>
+        // </View>
       );
-    };
+
+}

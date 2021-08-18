@@ -8,7 +8,7 @@ export default class DailyNews extends Component{
         return(
             
             <View style = {styles.container}>
-                <ImageBackground style = {{width:420, height: 400}}
+                <ImageBackground style = {{width:420, height: 286}}
                 source = {image}>
                     {/* <FontAwesomeIcon icon="coffee" /> */}
                     <TouchableOpacity style = {styles.button}>
@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
         alignItems: "center",
         justifyContent: 'center',
         marginLeft: 27,
-        marginTop:181,
+        marginTop:129,
         backgroundColor: '#C4C4C4',
         height: 30,      
     },
@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
         fontSize: 14,
         fontWeight: '700',
         color: "#ffffff",
-        marginTop:43,
+        marginTop:25,
         marginLeft: 27,
         marginRight:47
     },

@@ -12,7 +12,7 @@ export default class Routes extends Component{
             <Router>
                 <Scene key = "root" hideNavBar = {true}>
                    
-                    <Scene key = "landing" component = {Main} title= "Landing" initial />
+                   <Scene key = "landing" component = {Main} title= "Landing" initial />
                     <Scene key = "category" component = {Category} title = "category" />
                     <Scene key = "details" component = {Detail} title = "details" />
                     <Scene key = "searching" component = {Search} title = "searching" />

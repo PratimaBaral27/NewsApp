@@ -1,16 +1,25 @@
 import React, {Component} from 'react';
-import { View } from 'react-native';
+import { StyleSheet,View, ScrollView} from 'react-native';
+import Boxes from './Boxes/Boxes';
 import BreakingNews from './BreakingNews/BreakingNews';
 import DailyNews from './DailyNews/DailyNews';
 
 export default class Main extends Component{
     render(){
         return( 
-            <View>
+            <View style = {styles.container}>
                 <DailyNews /> 
-           <BreakingNews />
+              
+           <Boxes />
+           
             </View>
            
         );
     }
 }
+const styles = StyleSheet.create({
+    container: {
+        
+        backgroundColor: '#fafafa'
+    }
+})

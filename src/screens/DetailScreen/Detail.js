@@ -1,16 +1,36 @@
 import React, {Component} from 'react';
-import { Text, View, StyleSheet} from 'react-native';
+import { Text, View, StyleSheet, FlatList,List,Image} from 'react-native';
+import NewsApi from '../newsAPI';
 
-export default class Detail extends Component{
-    render(){
+const image = {uri :'https://democracynepal.com/wp-content/uploads/2021/08/gapa.jpg'}
+const Detail = (props) =>{
+    console.log(props.users)
+
+    const {users} = props
         return( 
-            <View style = {styles.container}>
-                <Text>DetailScreen</Text>
+            <View>
+                <Image source ={image}>
+                   
+                   </Image>
+                {users.map((user) => {
+            return (
+             
+                <Text>{user.id} {user.author}</Text>
+               
+                
+            );
+          })}
             </View>
-           
+            
+            
         );
-    }
+            
+            
+            
+         
+           
 }
+
 const styles = StyleSheet.create({
     container: {
         height: 286,
@@ -19,3 +39,4 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     }
 });
+export default NewsApi(Detail);

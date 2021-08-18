@@ -9,6 +9,7 @@ export default class Header extends React.Component{
               <Text>Breaking News</Text>  
             </View>
             
+            
         )
     }
 }
@@ -18,6 +19,6 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         height: '15%',
         width:'100%',
-        backgroundColor: '#eee'
+        backgroundColor: '#fff'
     }
 });
