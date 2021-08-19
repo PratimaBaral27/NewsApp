@@ -1,8 +1,12 @@
 import React from 'react'
 import { StyleSheet, Text, View,Image } from 'react-native'
+import NewsApi from '../../newsAPI'
+
 const image = {uri :'https://democracynepal.com/wp-content/uploads/2021/08/received_155372110058992-150x150.jpeg'}
-export default class Boxes extends React.Component{
-    render(){
+const Boxes = (props)=>{
+    console.log(props.users)
+    const{users} = props
+     
         return(
             <View style = {styles.container}>
                 <View style = {styles.box}>
@@ -11,10 +15,10 @@ export default class Boxes extends React.Component{
                     <Image style = {styles.image}
                 source = {image}>
                     </Image>
-                    <Text style= {styles.textTwo}>More</Text>
-                    <Text style= {styles.textThree}>Hot Topics</Text>
+                    <Text style= {styles.textTwo}>{users[0].title.rendered}</Text>
+                    <Text style= {styles.textThree}>{users[0].author_info.display_name}</Text>
 
-                    <Text style= {styles.textFour}>Hot Topics</Text>
+                    <Text style= {styles.textFour}>{users[0].date}</Text>
 
                     </View>
                 </View>
@@ -62,7 +66,7 @@ export default class Boxes extends React.Component{
             </View>
         )
     }
-}
+
 const styles = StyleSheet.create({
     container: {
         width:'100%',
@@ -125,3 +129,4 @@ const styles = StyleSheet.create({
         
     }
 });
+export default NewsApi(Boxes);

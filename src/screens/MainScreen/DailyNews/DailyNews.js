@@ -15,8 +15,8 @@ export default class DailyNews extends Component{
                 <Text style = {styles.buttonText} onPress = {() => Actions.details()}>News of the day</Text>
             </TouchableOpacity>
              <Text style = {styles.textTwo}
-             onPress = {() => Actions.details()}> अविरल वर्षापछि धनगढी उपमहानगरपालिकाका बस्तीहरु दुबानमा</Text>           
-             <Text style = {styles.textThree} onPress = {() => Actions.details()}>Learn More</Text>
+             onPress = {() => Actions.searching()}> अविरल वर्षापछि धनगढी उपमहानगरपालिकाका बस्तीहरु दुबानमा</Text>           
+             <Text style = {styles.textThree} onPress = {() => Actions.category()}>Learn More</Text>
                 </ImageBackground>
                 
             </View>

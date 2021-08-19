@@ -2,10 +2,12 @@ import React, { useState } from "react";
 import { useEffect } from "react";
 import axios from "axios";
 
+
 function NewsApi(WrappedComponent) {
-  function NewsApi() {
+  const NewsApi =  async => {
     const [users, setUsers] = useState([]);
     const [errorMsg, setErrorMsg] = useState("");
+    debugger
     useEffect(() => {
       axios
         .get('https://democracynepal.com/wp-json/wp/v2/posts')
@@ -18,8 +20,10 @@ function NewsApi(WrappedComponent) {
         });
     }, []);
     return <WrappedComponent users={users} />;
+    
+    
   }
-  return NewsApi;
+  return NewsApi();
 }
 
 export default NewsApi;
