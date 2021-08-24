@@ -1,36 +1,42 @@
 import React, {Component} from 'react';
 
 import { Text, View, StyleSheet, ImageBackground,ScrollView, FlatList,List,Image,TouchableOpacity} from 'react-native';
-import NewsApi from '../newsAPI';
+import { justifyContent } from 'styled-system';
+import newsApi from '../newsApi';
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+import {Actions} from 'react-native-router-flux';
+import {HTML} from 'react-native-render-html';
+import HTMLView from 'react-native-htmlview'
 
-const image = {uri :'https://democracynepal.com/wp-content/uploads/2021/08/dn.png'}
+
+// const image = {uri :'https://democracynepal.com/wp-content/uploads/2021/08/dn.png'}
 
 const Detail = (props) =>{
     
 
-    const {users} = props
-    console.log(props.users)
-    // const image = {uri : (users[1].featured_image_urls.full[1]) }
-    console.log(users[2].featured_image_urls.full[2])
+    const {data} = props
+    // console.log(props.users)
+    const image = {uri : (data && data[0].featured_image_urls.full[0]) }
+    // console.log(data[2].featured_image_urls.full[2])
     
         return( 
             <ScrollView>
                 <ImageBackground source ={image} style = {{width:420, height: 399}}>
+                <FontAwesome5 name={'arrow-left'}  style = {styles.icons} size = {25} color = 'white' onPress = {() => Actions.landing()}></FontAwesome5>
                    <TouchableOpacity style = {styles.button}>
-                       <Text style = {styles.buttonText}>{users[0].type}</Text>
+                       <Text style = {styles.buttonText}>{data && data[0].type}</Text>
                    </TouchableOpacity>
 
-                 <Text style = {styles.textTwo}>{users[0].title.rendered}</Text> 
-                 <Text style = {styles.textThree}>{users[0].author_info.display_name}</Text>
-                 <Text style = {styles.textFour}>{users[0].date}</Text> 
+                  <Text style = {styles.textTwo}>{data && data[0].title.rendered}</Text> 
+                 <Text style = {styles.textThree}>{data && data[0].author_info.display_name}</Text>
+                 <Text style = {styles.textFour}>{data && data[0].date}</Text> 
                  </ImageBackground> 
                    
                 {/* {users.map((user) => { */}
            
              
-                {/* <Text>{users[0].content.rendered}</Text> */}
-               
                 
+                <HTMLView value = {data && data[0].content.rendered} style= {styles.content} />
        
           {/* })} */}
              </ScrollView>
@@ -57,9 +63,13 @@ const styles = StyleSheet.create({
         alignItems: "center",
         justifyContent: 'center',
         marginLeft: 27,
-        marginTop:240,
+        marginTop:170,
         backgroundColor: '#C4C4C4',
         height: 30,      
+    },
+    icons:{
+        marginTop: 15,
+        marginLeft: 27
     },
     buttonText: {
         fontSize: 12,
@@ -91,6 +101,13 @@ const styles = StyleSheet.create({
         marginRight:37,
         textAlign: 'right',
         
+    },
+    content:{
+        flex: 1,
+        marginLeft:20,
+        marginRight:27,
+        alignItems: 'center',
+        justifyContent:'center'
     }
 });
-export default NewsApi(Detail);
+export default newsApi(Detail);

@@ -4,6 +4,7 @@ import Main from '../screens/MainScreen/Main';
 import Category from '../screens/CategoryScreen/Category';
 import Detail from '../screens/DetailScreen/Detail';
 import Search from '../screens/SearchScreen/Search';
+import SearchBox from '../screens/SearchScreen/SearchBox';
 
 export default class Routes extends Component{
     render(){
@@ -15,7 +16,9 @@ export default class Routes extends Component{
                    <Scene key = "landing" component = {Main} title= "Landing" initial />
                     <Scene key = "category" component = {Category} title = "category" />
                     <Scene key = "details" component = {Detail} title = "details" />
-                    <Scene key = "searching" component = {Search} title = "searching" />
+                    
+                <Scene key = "searching" component = {Search} title = "searching" />
+                <Scene key = "search" component = {SearchBox} title = "search" />
                 </Scene>
             </Router>
         )

@@ -1,74 +1,95 @@
 import React, {Component} from 'react';
-import { Text, View, StyleSheet, FlatList, SafeAreaView } from 'react-native';
-import NewsApi from '../newsAPI';
-import Politics from './Politics';
-import Sports from './Sports';
-import Entertainment from './Entertainment';
+import { Text, View, StyleSheet, FlatList,ScrollView,TextInput,onChangeText, SafeAreaView, Image } from 'react-native';
+import newsApi from '../newsApi';
+
 import { Container, Header, Content, Tab, Tabs } from 'native-base';
 import { TouchableOpacity } from 'react-native';
+import { ImageBackground } from 'react-native';
+import { flex, marginBottom, width } from 'styled-system';
+import SearchBar from 'react-native-dynamic-search-bar';
 const Category = (props) => {
-    console.log(props.users)
-    const {users} = props 
-    
-    renderItem = ({item, index}) => {
+
+    console.log(props.data)
+    const {data} = props 
+    // const image = {uri : (data && data[0].featured_image_urls.full[0]) }
+     
+      
         return (
-            <TouchableOpacity
-            style= {[
-               styles.item,
-               {
-                   marginTop: 11,
-                   height: 150,
-                   backgroundColor: 'white'
-               }
-            ]}
-            >
-                <Image style = {styles.image} 
-                />
+          <ScrollView style = {styles.container}>
+           
+              
+              {data && data.map((item) => {
+            return (
+              <View style = {styles.itemBox}>
+                <Image style = {styles.image} source = {{uri: (item.featured_image_urls.full[0])}}></Image>
                 
-            </TouchableOpacity>
-        )
+                <View style = {styles.textBox}>
+                <Text>{item.title.rendered}</Text> 
+                <Text style = {styles.textTwo}>{item.author_info.display_name}</Text>
+                <Text style = {styles.textTwo}>{item.date}</Text> 
+                
+                </View>
+              </View>
+            );
+          })}
+            
+          </ScrollView>
+        );
 
     }
-    return (
-        <SafeAreaView style={styles.container}>
-        
-          
-            <FlatList
-              data = {users}
-              renderItem = {renderItem}
-              keyExtractor = {item => `key-${item.id}`}
-              
-  
-            />
-           
-      )
-      <TouchableOpacity style = {styles.wrapButton}>
-          <Text style = {styles.txtFontSize}>Scroll To Item Selected</Text>
-
-      </TouchableOpacity>
-          
-         
-         </SafeAreaView>
-        
-      );
     
-};
-    
-
-    
-export default NewsApi(Category);
-
 const styles = StyleSheet.create({
     container: {
-      flex: 1,
-      
+      width:'100%',
+      height: '100%',
+      padding: 27,
     },
+    input:{
+      height: 40,
+      margin: 12,
+      borderWidth: 1,
+      padding : 10,
+    },
+    
+   
+  
+
+  textBox: {
+    width: '50%',
+    padding: 10,
+    marginBottom:20,
+    flex: 1,
+    backgroundColor: '#fafafa',
+    alignItems: 'flex-end',
+    justifyContent: 'flex-end',
+    fontWeight:'700',
+  
+},
+    image:{
+      width:170,
+      height: 100,
+      borderRadius: 20,
+      padding: 5,
+     },
+    
+ 
     wrapButton:{
         alignItems: 'center',
         marginHorizontal:50,
         padding: 20,
         backgroundColor:'orange'
     },
+    itemBox: {
+      flex: 1,
+      backgroundColor: '#fafafa',
+      alignItems: 'flex-start',
+      justifyContent: 'flex-start',
+      width:'100%',
+      flex:1,
+      flexDirection: 'row',
+      
+  },
+ 
     txtFontSize:{
         fontSize: 20
     },
@@ -82,4 +103,16 @@ const styles = StyleSheet.create({
     title: {
       fontSize: 17,
     },
+    textTwo: {
+      fontSize: 12,
+      fontWeight: '500',
+      color: '#B6B5B5'
+      
+  },
+    
+    image:{
+      width:100,
+      height:100,
+    }
   });
+  export default newsApi(Category);

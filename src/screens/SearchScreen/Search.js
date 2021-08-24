@@ -1,10 +1,17 @@
+import { ScrollView } from 'native-base';
 import * as React from 'react';
-import { View, useWindowDimensions } from 'react-native';
-import { TabView, SceneMap } from 'react-native-tab-view';
+import { View, useWindowDimensions, StyleSheet ,Text} from 'react-native';
+import { TabView, SceneMap, TabBar} from 'react-native-tab-view';
+import { backgroundColor } from 'styled-system';
 import Category from '../CategoryScreen/Category';
+import Heading from './Heading';
+import SearchBox from './SearchBox';
 
 const FirstRoute = () => (
-  <View style={{ flex: 1, backgroundColor: '#fafafa' }} />
+  <View style={{ flex: 1, backgroundColor: '#fafafa' }} >
+   
+    <SearchBox  />
+    </View>
 );
 
 const SecondRoute = () => (
@@ -13,11 +20,20 @@ const SecondRoute = () => (
 const ThirdRoute = () => (
     <View style={{ flex: 1, backgroundColor: '#fafafa' }} />
   );
+  const FourthRoute = () => (
+    <View style={{ flex: 1, backgroundColor: '#fafafa' }} />
+  );
+  const FifthRoute = () => (
+    <View style={{ flex: 1, backgroundColor: '#fafafa' }} />
+  );
+
 
 const renderScene = SceneMap({
   first: FirstRoute,
   second: SecondRoute,
   third: ThirdRoute,
+  four: FourthRoute,
+  five: FifthRoute,
 });
 
 export default function Search() {
@@ -25,21 +41,42 @@ export default function Search() {
 
   const [index, setIndex] = React.useState(0);
   const [routes] = React.useState([
-    { key: 'first', title: 'Politics' },
-    { key: 'second', title: 'Entertain' },
-    {key: 'third', title: 'Sports'}
+    { key: 'first', title: 'Politics'},
+    { key: 'second', title: 'Art' },
+    { key: 'third', title: 'Sports'},
+    { key: 'four', title:'Food'},
+    { key: 'five', title: 'Service' },
   ]);
 
+
+  const renderTabBar = props => (
+    <TabBar
+      {...props}
+      indicatorStyle={{ backgroundColor: 'black' }}
+      style={{ backgroundColor: '#fafafa' }}
+      renderLabel={({ route, focused, color }) => (
+        <Text style={{ color: 'black', margin: 2 }}>
+          {route.title}
+        </Text>
+      )}
+    />
+  );
+  
+  
+ 
+
   return (
-      <>
+    
+    <>
+    <Heading />
     <TabView
       navigationState={{ index, routes }}
       renderScene={renderScene}
       onIndexChange={setIndex}
-      initialLayout={{ width: layout.width }}
-      
+      initialLayout={{ width: layout.width }}  
+      renderTabBar={renderTabBar}
     />
-     <Category /> 
-    </>
+    </>    
   );
 }
+

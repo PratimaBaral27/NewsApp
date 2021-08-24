@@ -1,29 +1,41 @@
-import React, { useState } from "react";
-import { useEffect } from "react";
-import axios from "axios";
+import React, {useEffect, useState} from 'react'
+import { View, Text, StyleSheet, FlatList, ActivityIndicator, ScrollView, SafeAreaView } from 'react-native';
 
-
-function NewsApi(WrappedComponent) {
-  const NewsApi =  async => {
-    const [users, setUsers] = useState([]);
-    const [errorMsg, setErrorMsg] = useState("");
-    debugger
-    useEffect(() => {
-      axios
-        .get('https://democracynepal.com/wp-json/wp/v2/posts')
-        .then((response) => {
-          console.log(response.data);
-          setUsers(response.data);
-        })
-        .catch((err) => {
-          setErrorMsg("Error retriving data");
-        });
-    }, []);
-    return <WrappedComponent users={users} />;
+ function newsApi (WrappedComponent){
+   function NewsApi(){
+    const [isLoading, setLoading] = useState(true);
+    const [data, setData] = useState([]);
     
+    const getNews = async () => {
+        try {
+          const response = await fetch('https://democracynepal.com/wp-json/wp/v2/posts');
+          const json = await response.json();
+          setData(json);
+          
+        } catch (error) {
+          console.error(error);
+        } finally {
+          setLoading(false);
+        }
+      }
     
-  }
-  return NewsApi();
-}
+      useEffect(() => {
+        getNews();
+      }, []);
+      
+      console.log(data);
+      return (
+        <View>
+          {!isLoading && <WrappedComponent data = {data} />}
+          {isLoading && <WrappedComponent /> }
+        </View>
 
-export default NewsApi;
+          
+      );
+      
+              }
+              return NewsApi;
+
+      
+    }
+    export default newsApi;

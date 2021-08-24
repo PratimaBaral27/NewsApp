@@ -7,12 +7,14 @@ import DailyNews from './DailyNews/DailyNews';
 export default class Main extends Component{
     render(){
         return( 
-            <View style = {styles.container}>
-                <DailyNews /> 
+            
+            <ScrollView style = {styles.container}>
+                 <DailyNews /> 
+                 <Boxes />
               
-           <Boxes />
            
-            </View>
+           
+             </ScrollView>
            
         );
     }
