@@ -1,16 +1,13 @@
 import React, {useState, useEffect} from 'react';
-import { Text, View, StyleSheet, FlatList,ScrollView,TextInput,onChangeText, SafeAreaView, Image } from 'react-native';
-import { backgroundColor } from 'styled-system';
-// import { styles } from 'styled-system';
+import { Text, View, StyleSheet, FlatList, Image } from 'react-native';
 import newsApi from '../newsApi';
-import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+import SearchBar from 'react-native-dynamic-search-bar';
 
 const SearchBox = (props) => {
     const[search, setSearch] = useState('');
     const [filterData, setfilterData] = useState([]);
     const [masterData, setMasterData] = useState([]);
 
-    // console.log(props.data)
     const {data} = props 
 
     useEffect(() => {
@@ -42,7 +39,6 @@ const SearchBox = (props) => {
         
             <View style = {styles.itemBox}>
                  <Image style = {styles.image} source = {{uri: (item.featured_image_urls.full[0])}}></Image>
-                
                  <View style = {styles.textBox}>
                  <Text>{item.title.rendered}</Text> 
                  <Text style = {styles.textTwo}>{item.author_info.display_name}</Text>
@@ -61,28 +57,25 @@ const SearchBox = (props) => {
     }
       
         return (
-            // <ScrollView style = {{flex: 1}}>
+            
                 <View style = {styles.container}>
-                    <TextInput style= {styles.textInputStyle}
-                    value = {search}
-                    placeholder = "Search"
-                    underlineColorAndroid= "transparent"
-                    onChangeText = {(text) => searchFilter(text)}
-                    
-
-                     />
-                     {/* <FontAwesome5 name={'bars'}  style = {styles.icons} size = {25} onPress = {() => Actions.landing()}></FontAwesome5> */}
+                
+               <SearchBar style = {styles.textInputStyle}
+               value = {search}
+               placeholder="Search"
+               underlineColorAndroid = "transparent"
+               onChangeText={(text) => searchFilter(text)}
+                 />
+                     
                  <FlatList
                     data = {filterData}
-    
                     keyExtractor = {(item, index) => index.toString()}
-                    // keyExtractor={item => item.id}
                     ItemSeparatorComponent = {ItemSeparatorView}
                     renderItem = {ItemView}
 
                   />
                 </View>
-            /* </ScrollView> */
+            
         );
 
     }
@@ -95,6 +88,7 @@ const styles = StyleSheet.create({
     },
     textInputStyle:{
       height: 40,
+      width: 375,
       marginTop: 0,
       marginBottom: 15,
       borderWidth: 1,
@@ -118,8 +112,8 @@ const styles = StyleSheet.create({
     alignItems: 'flex-end',
     justifyContent: 'flex-end',
     fontWeight:'700',
-  
-},
+    },
+
     image:{
       width:170,
       height: 100,
@@ -127,7 +121,6 @@ const styles = StyleSheet.create({
       padding: 5,
      },
     
- 
     wrapButton:{
         alignItems: 'center',
         marginHorizontal:50,
@@ -142,7 +135,6 @@ const styles = StyleSheet.create({
       width:'100%',
       flex:1,
       flexDirection: 'row',
-      
   },
  
     txtFontSize:{

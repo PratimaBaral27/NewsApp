@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react'
-import { View, Text, StyleSheet, FlatList, ActivityIndicator, ScrollView, SafeAreaView } from 'react-native';
+import { View } from 'react-native';
 
  function newsApi (WrappedComponent){
    function NewsApi(){

@@ -7,11 +7,11 @@ import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import {Actions} from 'react-native-router-flux';
 import HTMLView from 'react-native-htmlview'
 
-const Detail = (props) =>{
+const Detail3 = (props) => {
     
     const {data} = props
     
-    const image = {uri : (data && data[0].featured_image_urls.full[0]) }
+    const image = {uri : (data && data[3].featured_image_urls.full[0]) }
     
     
         return( 
@@ -19,15 +19,15 @@ const Detail = (props) =>{
                 <ImageBackground source ={image} style = {{width:420, height: 399}}>
                 <FontAwesome5 name={'arrow-left'}  style = {styles.icons} size = {25} color = 'white' onPress = {() => Actions.landing()}></FontAwesome5>
                    <TouchableOpacity style = {styles.button}>
-                       <Text style = {styles.buttonText}>{data && data[0].type}</Text>
+                       <Text style = {styles.buttonText}>{data && data[3].type}</Text>
                    </TouchableOpacity>
 
-                  <Text style = {styles.textTwo}>{data && data[0].title.rendered}</Text> 
-                 <Text style = {styles.textThree}>{data && data[0].author_info.display_name}</Text>
-                 <Text style = {styles.textFour}>{data && data[0].date}</Text> 
+                  <Text style = {styles.textTwo}>{data && data[3].title.rendered}</Text> 
+                 <Text style = {styles.textThree}>{data && data[3].author_info.display_name}</Text>
+                 <Text style = {styles.textFour}>{data && data[3].date}</Text> 
                  </ImageBackground> 
                 
-                <HTMLView value = {data && data[0].content.rendered} style= {styles.content} />
+                <HTMLView value = {data && data[3].content.rendered} style= {styles.content} />
              </ScrollView>
             
         );         
@@ -93,4 +93,4 @@ const styles = StyleSheet.create({
         justifyContent:'center'
     }
 });
-export default newsApi(Detail);
+export default newsApi(Detail3);

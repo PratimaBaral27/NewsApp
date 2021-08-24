@@ -1,7 +1,5 @@
 import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
-import { color, marginBottom } from 'styled-system'
-import SearchBar from "react-native-dynamic-search-bar";
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import {Actions} from 'react-native-router-flux';
 
@@ -14,12 +12,6 @@ export default class Header extends React.Component{
              <FontAwesome5 name={'bars'}  style = {styles.icons} size = {25} onPress = {() => Actions.landing()}></FontAwesome5>
               <Text style = {styles.textOne}>Discover</Text> 
               <Text style = {styles.textTwo}>News from all over the world</Text>
-              
-              {/* <SearchBar style = {styles.search}
-               placeholder="Search"
-               onPress={() => alert("onPress")}
-               onChangeText={(text) => console.log(text)}
-                 /> */}
             </View>
             
             

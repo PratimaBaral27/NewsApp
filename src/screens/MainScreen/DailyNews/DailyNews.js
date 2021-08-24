@@ -3,7 +3,7 @@ import { Image,ImageBackground, View,Text, StyleSheet, Button,TouchableOpacity} 
 import {Actions} from 'react-native-router-flux';
 import newsApi from '../../newsApi';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
-// const image = {uri :'https://democracynepal.com/wp-content/uploads/2021/08/dn.png'}
+
 const DailyNews = (props) => {
     const {data} = props
     const image = {uri : (data && data[0].featured_image_urls.full[0]) }
@@ -12,19 +12,17 @@ const DailyNews = (props) => {
             <View style = {styles.container}>
                 <ImageBackground style = {{width:420, height: 286, borderRadius:200}}
                 source = {image}>
-                    <FontAwesome5 name={'bars'}  style = {styles.icons}size = {25} color = 'white'onPress = {() => Actions.search()} ></FontAwesome5>
-                    {/* <FontAwesomeIcon icon="coffee" /> */}
+                    <FontAwesome5 name={'bars'}  style = {styles.icons}size = {25} color = 'white'onPress = {() => Actions.searching()} ></FontAwesome5>
+                  
                     <TouchableOpacity style = {styles.button}>
                     
                 <Text style = {styles.buttonText} onPress = {() => Actions.details()}>News of the day</Text>
             </TouchableOpacity>
              <Text style = {styles.textTwo}
-              onPress = {() => Actions.details()}> {data && data[1].title.rendered}</Text>           
-              <Text style = {styles.textThree} onPress = {() => Actions.searching()}>Learn More</Text>
-                </ImageBackground>
-                
-            </View>
-            
+              onPress = {() => Actions.details()}> {data && data[0].title.rendered}</Text>           
+              <Text style = {styles.textThree} onPress = {() => Actions.details()}>Learn More</Text>
+                </ImageBackground> 
+            </View>     
         );
     }
 
