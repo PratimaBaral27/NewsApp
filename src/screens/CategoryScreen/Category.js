@@ -1,12 +1,6 @@
 import React, {Component} from 'react';
 import { Text, View, StyleSheet, FlatList,ScrollView,TextInput,onChangeText, SafeAreaView, Image } from 'react-native';
 import newsApi from '../newsApi';
-
-import { Container, Header, Content, Tab, Tabs } from 'native-base';
-import { TouchableOpacity } from 'react-native';
-import { ImageBackground } from 'react-native';
-import { flex, marginBottom, width } from 'styled-system';
-import SearchBar from 'react-native-dynamic-search-bar';
 const Category = (props) => {
 
     console.log(props.data)
@@ -21,7 +15,7 @@ const Category = (props) => {
               {data && data.map((item) => {
             return (
               <View style = {styles.itemBox}>
-                <Image style = {styles.image} source = {{uri: (item.featured_image_urls.full[0])}}></Image>
+                <Image style = {{height: 100, width: 180,borderRadius: 15}} source = {{uri: (item.featured_image_urls.full[0])}}></Image>
                 
                 <View style = {styles.textBox}>
                 <Text>{item.title.rendered}</Text> 

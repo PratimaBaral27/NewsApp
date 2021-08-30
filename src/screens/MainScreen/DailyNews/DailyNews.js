@@ -3,26 +3,31 @@ import { Image,ImageBackground, View,Text, StyleSheet, Button,TouchableOpacity} 
 import {Actions} from 'react-native-router-flux';
 import newsApi from '../../newsApi';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
-
+import BreakingAPI from '../../BreakingAPI';
+import Breaking from '../BreakingNews/Breaking';
+// const image = {uri :'https://democracynepal.com/wp-content/uploads/2021/08/dn.png'}
 const DailyNews = (props) => {
     const {data} = props
     const image = {uri : (data && data[0].featured_image_urls.full[0]) }
         return(
             
             <View style = {styles.container}>
-                <ImageBackground style = {{width:420, height: 286, borderRadius:200}}
+                <ImageBackground style = {{width:420, height: 330,backgroundColor: '#000000', opacity:0.6}}
                 source = {image}>
-                    <FontAwesome5 name={'bars'}  style = {styles.icons}size = {25} color = 'white'onPress = {() => Actions.searching()} ></FontAwesome5>
-                  
+                    <FontAwesome5 name={'bars'}  style = {styles.icons} size = {25} onPress = {() => Actions.searching()}></FontAwesome5>
+                    {/* <FontAwesomeIcon icon="coffee" /> */}
                     <TouchableOpacity style = {styles.button}>
                     
                 <Text style = {styles.buttonText} onPress = {() => Actions.details()}>News of the day</Text>
             </TouchableOpacity>
              <Text style = {styles.textTwo}
-              onPress = {() => Actions.details()}> {data && data[0].title.rendered}</Text>           
-              <Text style = {styles.textThree} onPress = {() => Actions.details()}>Learn More</Text>
-                </ImageBackground> 
-            </View>     
+              onPress = {() => Actions.searching()}> {data && data[0].title.rendered}</Text>           
+              <Text style = {styles.textThree} onPress = {() => Actions.category()}>Learn More</Text>
+                </ImageBackground>
+                {/* <Text style = { styles.textFour}> Breaking News                                             More</Text> */}
+                
+            </View>
+            
         );
     }
 
@@ -34,18 +39,17 @@ const styles = StyleSheet.create({
     },
     icons:{
         marginTop: 15,
-        marginLeft: 27,
-        
-       
+        marginLeft: 37,
+        color: '#ffffff'
     },
     button:{
         width: 121,
         borderRadius:10,
         alignItems: "center",
         justifyContent: 'center',
-        marginLeft: 27,
-        marginTop:95,
-        backgroundColor: '#C4C4C4',
+        marginLeft: 37,
+        marginTop:129,
+        backgroundColor: '#A9A9A9',
         height: 30,      
     },
     buttonText: {
@@ -60,7 +64,7 @@ const styles = StyleSheet.create({
         fontWeight: '700',
         color: "#ffffff",
         marginTop:25,
-        marginLeft: 27,
+        marginLeft: 33,
         marginRight:47
     },
     textThree:{
@@ -68,7 +72,14 @@ const styles = StyleSheet.create({
         fontWeight:'700',
         color: "#ffffff",
         marginTop: 25,
-        marginLeft:27
+        marginLeft:37
+    },
+    textFour:{
+        fontSize: 16,
+        fontWeight: '700',
+        marginLeft: 27,
+        marginTop: 25,
+
     }
 });
 export default newsApi(DailyNews);

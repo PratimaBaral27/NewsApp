@@ -1,0 +1,6 @@
+module Pods_NewsBitsPanda_NewsBitsPandaTests {
+  umbrella header "Pods-NewsBitsPanda-NewsBitsPandaTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

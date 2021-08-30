@@ -90,7 +90,7 @@ const styles = StyleSheet.create({
         marginLeft:20,
         marginRight:27,
         alignItems: 'center',
-        justifyContent:'center'
+        
     }
 });
 export default newsApi(Detail2);

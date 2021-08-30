@@ -50,6 +50,53 @@ const Boxes = (props)=>{
                 </View>
 
                 <View style = {styles.box}>
+                    <View style = {styles.innerRight}>
+                    <Text style= {styles.text}>More</Text>
+                    <TouchableOpacity  onPress = {() => Actions.detail1()}>
+                    <Image style = {styles.image}
+                     source = {image1} >
+                    </Image>
+                    </TouchableOpacity>
+                    <HTMLView  value = {data && data[1].title.rendered} style= {styles.textTwo} />
+                    <Text style= {styles.textThree}>{data && data[1].author_info.display_name}</Text>
+
+                    <Text style= {styles.textThree}>{data && data[1].date}</Text>
+
+                    </View>
+                </View>
+
+                <View style = {styles.box}>
+                    <View style = {styles.innerRight}>
+                    <Text style= {styles.text}>More</Text>
+                    <TouchableOpacity  onPress = {() => Actions.detail1()}>
+                    <Image style = {styles.image}
+                     source = {image1} >
+                    </Image>
+                    </TouchableOpacity>
+                    <HTMLView  value = {data && data[1].title.rendered} style= {styles.textTwo} />
+                    <Text style= {styles.textThree}>{data && data[1].author_info.display_name}</Text>
+
+                    <Text style= {styles.textThree}>{data && data[1].date}</Text>
+
+                    </View>
+                </View>
+                <View style = {styles.box}>
+                    <View style = {styles.innerRight}>
+                    <Text style= {styles.text}>More</Text>
+                    <TouchableOpacity  onPress = {() => Actions.detail1()}>
+                    <Image style = {styles.image}
+                     source = {image1} >
+                    </Image>
+                    </TouchableOpacity>
+                    <HTMLView  value = {data && data[1].title.rendered} style= {styles.textTwo} />
+                    <Text style= {styles.textThree}>{data && data[1].author_info.display_name}</Text>
+
+                    <Text style= {styles.textThree}>{data && data[1].date}</Text>
+
+                    </View>
+                </View>
+
+                <View style = {styles.box}>
                     <View style = {styles.innerLeft}>
                     <Text style= {styles.text}>Hot Topics</Text>
                     <TouchableOpacity  onPress = {() => Actions.detail2()}>
@@ -94,7 +141,7 @@ const styles = StyleSheet.create({
      width:170,
      height: 100,
      borderRadius:15,
-     padding: 5,
+     padding: 10,
     },
     box: {
         width: '50%',
@@ -119,7 +166,7 @@ const styles = StyleSheet.create({
     
     textTwo: {
         
-        fontWeight: '500',
+        
         alignItems: 'center',
        
         

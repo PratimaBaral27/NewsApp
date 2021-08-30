@@ -2,8 +2,6 @@ import { ScrollView } from 'native-base';
 import * as React from 'react';
 import { View, useWindowDimensions, StyleSheet ,Text} from 'react-native';
 import { TabView, SceneMap, TabBar} from 'react-native-tab-view';
-import { backgroundColor } from 'styled-system';
-import Category from '../CategoryScreen/Category';
 import Heading from './Heading';
 import SearchBox from './SearchBox';
 

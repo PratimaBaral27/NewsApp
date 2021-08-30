@@ -6,6 +6,7 @@ import newsApi from '../newsApi';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import {Actions} from 'react-native-router-flux';
 import HTMLView from 'react-native-htmlview'
+import { flex } from 'styled-system';
 
 const Detail = (props) =>{
     
@@ -90,7 +91,8 @@ const styles = StyleSheet.create({
         marginLeft:20,
         marginRight:27,
         alignItems: 'center',
-        justifyContent:'center'
+        
     }
+    
 });
 export default newsApi(Detail);

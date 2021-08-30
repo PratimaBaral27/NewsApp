@@ -38,7 +38,7 @@ const SearchBox = (props) => {
     const ItemView = ({item}) => (
         
             <View style = {styles.itemBox}>
-                 <Image style = {styles.image} source = {{uri: (item.featured_image_urls.full[0])}}></Image>
+                 <Image style = {{height: 100, width: 100,borderRadius: 15}} source = {{uri: (item.featured_image_urls.full[0])}}></Image>
                  <View style = {styles.textBox}>
                  <Text>{item.title.rendered}</Text> 
                  <Text style = {styles.textTwo}>{item.author_info.display_name}</Text>

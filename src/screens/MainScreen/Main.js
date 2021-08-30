@@ -1,22 +1,26 @@
 import React, {Component} from 'react';
-import { StyleSheet,View, ScrollView} from 'react-native';
+import { StyleSheet,View, Text, ScrollView} from 'react-native';
+import BreakingAPI from '../BreakingAPI';
 import Boxes from './Boxes/Boxes';
-import BreakingNews from './BreakingNews/BreakingNews';
+import Breaking from './BreakingNews/Breaking';
+
 import DailyNews from './DailyNews/DailyNews';
+import HotTopics from './HotTopics/HotTopics';
 
 export default class Main extends Component{
     render(){
         return( 
-            
-            <ScrollView style = {styles.container}>
-                 <DailyNews /> 
-                 <Boxes />
-              
+            <ScrollView>
            
+                 <DailyNews />
+                  
+                  
+               <Breaking />
            
-             </ScrollView>
+           </ScrollView>
+             
            
-        );
+        )
     }
 }
 const styles = StyleSheet.create({

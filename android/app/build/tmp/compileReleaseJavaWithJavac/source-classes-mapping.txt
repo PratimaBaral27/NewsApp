@@ -1,0 +1,9 @@
+com/newsbitspanda/MainApplication.java
+ com.newsbitspanda.MainApplication
+ com.newsbitspanda.MainApplication$1
+com/newsbitspanda/BuildConfig.java
+ com.newsbitspanda.BuildConfig
+com/newsbitspanda/MainActivity.java
+ com.newsbitspanda.MainActivity
+com/facebook/react/PackageList.java
+ com.facebook.react.PackageList
