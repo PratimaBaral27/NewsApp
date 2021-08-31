@@ -2,15 +2,18 @@ import React, {useState, useEffect} from 'react';
 import { Text, ScrollView,View, StyleSheet, FlatList, Image, ActivityIndicatorBase, ActivityIndicator } from 'react-native';
 
 import BreakingAPI from '../../BreakingAPI';
+import HotTopics from '../HotTopics/HotTopics';
 
-const numColumns = 1
+const numColumns = 5
 const Breaking = (props) => {
   const [filterData, setfilterData] = useState([]);
     const {data} = props 
-    console.log(data)
+    
 
     useEffect(() => {
+      if  (data && data.length >= 5)
       setfilterData(data);
+      
       console.log(filterData)
        }, []);
     
@@ -36,27 +39,28 @@ const Breaking = (props) => {
         )
     }
         return (
+          
             
-                <ScrollView style = {styles.container}
-                scrollEventThrottle = {16}
-                // horizontal= {true}
-                >
+                 <ScrollView style = {styles.container}
+                 scrollEventThrottle = {16}
+                 horizontal= {true}
+                 >
 
-                     {loading ? <ActivityIndicator
-                    color ='#000000' animating = {true}/> :
-                     
+                    
+           
                  <FlatList 
-                    data = {data.slice(0, 5)}
+                    data = {filterData.slice(0,5)}
                     keyExtractor = {(item, index) => index.toString()}
-                    ItemSeparatorComponent = {ItemSeparatorView}
+                    // ItemSeparatorComponent = {ItemSeparatorView}
                     renderItem = {ItemView}
-                    // numColumns = {numColumns}
+                     numColumns = {numColumns}
                     
                   />
+            
                   
-                    } 
+            
                     
-                   
+                  
                     
 
                     
@@ -65,13 +69,15 @@ const Breaking = (props) => {
                     
 
                  </ScrollView>
+                 
+                 
         );
     }
     
 const styles = StyleSheet.create({
     container: {
       width:'100%',
-      height: '100%',
+      height: '27%',
       padding: 20,
     },
     textInputStyle:{

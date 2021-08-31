@@ -2,8 +2,12 @@ import { ScrollView } from 'native-base';
 import * as React from 'react';
 import { View, useWindowDimensions, StyleSheet ,Text} from 'react-native';
 import { TabView, SceneMap, TabBar} from 'react-native-tab-view';
+import Art from './Art';
 import Heading from './Heading';
+import National from './National';
+import Politics from './Politics';
 import SearchBox from './SearchBox';
+import Sports from './Sports';
 
 const FirstRoute = () => (
   <View style={{ flex: 1, backgroundColor: '#fafafa' }} >
@@ -13,16 +17,26 @@ const FirstRoute = () => (
 );
 
 const SecondRoute = () => (
-  <View style={{ flex: 1, backgroundColor: '#000000' }} />
+  <View style={{ flex: 1, backgroundColor: '#fafafa' }} >
+  <Politics />
+  </View>
 );
 const ThirdRoute = () => (
-    <View style={{ flex: 1, backgroundColor: '#fafafa' }} />
+    <View style={{ flex: 1, backgroundColor: '#fafafa' }} >
+  <National />
+    </View>
+    
+    
   );
   const FourthRoute = () => (
-    <View style={{ flex: 1, backgroundColor: '#fafafa' }} />
+    <View style={{ flex: 1, backgroundColor: '#fafafa' }}>
+      <Art />
+    </View>
   );
   const FifthRoute = () => (
-    <View style={{ flex: 1, backgroundColor: '#fafafa' }} />
+    <View style={{ flex: 1, backgroundColor: '#fafafa' }}>
+      <Sports />
+    </View>
   );
 
 
@@ -39,11 +53,11 @@ export default function Search() {
 
   const [index, setIndex] = React.useState(0);
   const [routes] = React.useState([
-    { key: 'first', title: 'Politics'},
-    { key: 'second', title: 'Art' },
-    { key: 'third', title: 'Sports'},
-    { key: 'four', title:'Food'},
-    { key: 'five', title: 'Service' },
+    { key: 'first', title: 'Trending'},
+    { key: 'second', title: 'Politics' },
+    { key: 'third', title: 'National'},
+    { key: 'four', title:'Art'},
+    { key: 'five', title: 'Sports' },
   ]);
 
 
@@ -53,7 +67,7 @@ export default function Search() {
       indicatorStyle={{ backgroundColor: 'black' }}
       style={{ backgroundColor: '#fafafa' }}
       renderLabel={({ route, focused, color }) => (
-        <Text style={{ color: 'black', margin: 2 }}>
+        <Text style={{ color: 'black', margin: 0 }}>
           {route.title}
         </Text>
       )}

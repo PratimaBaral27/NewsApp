@@ -17,7 +17,7 @@ const Detail = (props) =>{
     
         return( 
             <ScrollView>
-                <ImageBackground source ={image} style = {{width:420, height: 399}}>
+                <ImageBackground source ={image} style = {{width:420, height: 399,backgroundColor: '#000000', opacity:0.5}}>
                 <FontAwesome5 name={'arrow-left'}  style = {styles.icons} size = {25} color = 'white' onPress = {() => Actions.landing()}></FontAwesome5>
                    <TouchableOpacity style = {styles.button}>
                        <Text style = {styles.buttonText}>{data && data[0].type}</Text>

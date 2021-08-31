@@ -5,14 +5,16 @@ import newsApi from '../../newsApi';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import BreakingAPI from '../../BreakingAPI';
 import Breaking from '../BreakingNews/Breaking';
+import HotTopics from '../HotTopics/HotTopics';
 // const image = {uri :'https://democracynepal.com/wp-content/uploads/2021/08/dn.png'}
 const DailyNews = (props) => {
     const {data} = props
     const image = {uri : (data && data[0].featured_image_urls.full[0]) }
         return(
+            <View>
             
             <View style = {styles.container}>
-                <ImageBackground style = {{width:420, height: 330,backgroundColor: '#000000', opacity:0.6}}
+                <ImageBackground style = {{width:420, height: 335,backgroundColor: '#000000', opacity:0.6}}
                 source = {image}>
                     <FontAwesome5 name={'bars'}  style = {styles.icons} size = {25} onPress = {() => Actions.searching()}></FontAwesome5>
                     {/* <FontAwesomeIcon icon="coffee" /> */}
@@ -24,9 +26,15 @@ const DailyNews = (props) => {
               onPress = {() => Actions.searching()}> {data && data[0].title.rendered}</Text>           
               <Text style = {styles.textThree} onPress = {() => Actions.category()}>Learn More</Text>
                 </ImageBackground>
-                {/* <Text style = { styles.textFour}> Breaking News                                             More</Text> */}
+                
+
+                  
                 
             </View>
+            
+
+
+      </View>
             
         );
     }
@@ -74,12 +82,6 @@ const styles = StyleSheet.create({
         marginTop: 25,
         marginLeft:37
     },
-    textFour:{
-        fontSize: 16,
-        fontWeight: '700',
-        marginLeft: 27,
-        marginTop: 25,
-
-    }
+   
 });
 export default newsApi(DailyNews);

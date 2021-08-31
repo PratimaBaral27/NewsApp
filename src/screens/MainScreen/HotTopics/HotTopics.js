@@ -5,15 +5,18 @@ import HotTopicsAPI from '../../HotTopicsAPI';
 
 const numColumns = 5
 const HotTopics = (props) => {
-    const[loading, setLoading] = useState(false);
-
-    const startLoading = () => {
-        setLoading(true);
-        setTimeout(() => {
-            setLoading(false); 
-    }, 3000);
-    };
+  const [filterData, setfilterData] = useState([]);
     const {data} = props 
+    
+
+    useEffect(() => {
+      if  (data && data.length >= 5)
+      setfilterData(data);
+      
+      console.log(filterData)
+       }, []);
+    
+    
     const ItemView = ({item}) => (
         
             <View>
@@ -36,32 +39,31 @@ const HotTopics = (props) => {
     }
         return (
             
-                <ScrollView style = {styles.container}
-                scrollEventThrottle = {16}
-                horizontal= {true}
-                >
+                 <ScrollView style = {styles.container}
+                 scrollEventThrottle = {16}
+                 horizontal= {true}
+                 >
 
-                    {loading ? <ActivityIndicator
-                    color ='#000000' animating = {true}/> :
-                     
-                 <FlatList
-                    data = {data}
+                 <FlatList 
+                    data = {filterData.slice(0,5)}
                     keyExtractor = {(item, index) => index.toString()}
                     // ItemSeparatorComponent = {ItemSeparatorView}
                     renderItem = {ItemView}
-                    numColumns = {numColumns}
-                    maxToRenderPerBatch={5}
+                     numColumns = {numColumns}
+                    
                   />
-                    }
-                </ScrollView>
+                  
+                 </ScrollView>
         );
     }
     
 const styles = StyleSheet.create({
     container: {
       width:'100%',
-      height: '100%',
+      height: '60%',
       padding: 20,
+      marginRight: 27,
+
     },
     textInputStyle:{
       height: 40,
@@ -78,8 +80,8 @@ const styles = StyleSheet.create({
 
   textBox: {
     width: '50%',
-    padding: 10,
-    marginBottom:20,
+    padding: 15,
+    marginBottom:25,
     flex: 1,
     backgroundColor: '#fafafa',
     alignItems: 'flex-end',
@@ -114,7 +116,7 @@ const styles = StyleSheet.create({
     },
     item: {
       backgroundColor: '#f9c2ff',
-      padding: 8,
+      padding: 10,
       borderRadius:10,
       borderWidth: 0.5,
       justifyContent:'center'
