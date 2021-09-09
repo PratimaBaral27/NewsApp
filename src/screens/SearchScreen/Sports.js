@@ -1,7 +1,9 @@
 import React, {useState, useEffect} from 'react';
-import { Text, View, StyleSheet, FlatList, Image } from 'react-native';
+import { Text, View, StyleSheet, FlatList,TouchableOpacity, Image } from 'react-native';
 import SportsAPI from '../SportsAPI';
 import SearchBar from 'react-native-dynamic-search-bar';
+import { useNavigation } from '@react-navigation/core';
+import { NavigationContainer } from '@react-navigation/native';
 
 const Sports = (props) => {
     const[search, setSearch] = useState('');
@@ -9,6 +11,7 @@ const Sports = (props) => {
     const [masterData, setMasterData] = useState([]);
 
     const {data} = props 
+    navigation = useNavigation();
 
     useEffect(() => {
    setfilterData(data);
@@ -36,7 +39,7 @@ const Sports = (props) => {
     
 
     const ItemView = ({item}) => (
-        
+      <TouchableOpacity onPress = {() => navigation.navigate('CategoryDetails',{item1: item}) }>
             <View style = {styles.itemBox}>
                  <Image style = {{height: 100, width: 100,borderRadius: 15}} source = {{uri: (item.featured_image_urls.full[0])}}></Image>
                  <View style = {styles.textBox}>
@@ -45,6 +48,7 @@ const Sports = (props) => {
                   <Text style = {styles.textTwo}>{item.date}</Text> 
                </View>
              </View>
+             </TouchableOpacity>
 
     );
     

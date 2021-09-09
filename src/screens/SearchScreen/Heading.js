@@ -1,22 +1,18 @@
 import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
-import {Actions} from 'react-native-router-flux';
+import { useNavigation } from '@react-navigation/core';
 
 
-export default class Header extends React.Component{
-    render(){
+const Header = () => {
+    navigation = useNavigation();
         return(
-            
             <View style = {styles.header}>
-             <FontAwesome5 name={'bars'}  style = {styles.icons} size = {25} onPress = {() => Actions.landing()}></FontAwesome5>
+             <FontAwesome5 name={'bars'}  style = {styles.icons} size = {25} onPress = {() => navigation.navigate('Main')}></FontAwesome5>
               <Text style = {styles.textOne}>Discover</Text> 
               <Text style = {styles.textTwo}>News from all over the world</Text>
-            </View>
-            
-            
+            </View>                  
         )
-    }
 }
 const styles = StyleSheet.create({
     header: {
@@ -52,3 +48,4 @@ const styles = StyleSheet.create({
         
     }
 });
+export default Header;

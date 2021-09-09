@@ -1,4 +1,4 @@
-#Tue Aug 31 12:29:47 NPT 2021
+#Fri Sep 03 18:22:58 NPT 2021
 base.0=/Users/pratima/Desktop/NewsBitsPanda/android/app/build/intermediates/dex/release/mergeDexRelease/classes.dex
 path.0=classes.dex
 renamed.0=classes.dex

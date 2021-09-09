@@ -27,8 +27,6 @@ import com.react.rnspinkit.RNSpinkitPackage;
 import com.horcrux.svg.SvgPackage;
 // react-native-vector-icons
 import com.oblador.vectoricons.VectorIconsPackage;
-// react-native-webview
-import com.reactnativecommunity.webview.RNCWebViewPackage;
 
 public class PackageList {
   private Application application;
@@ -81,8 +79,7 @@ public class PackageList {
       new RNScreensPackage(),
       new RNSpinkitPackage(),
       new SvgPackage(),
-      new VectorIconsPackage(),
-      new RNCWebViewPackage()
+      new VectorIconsPackage()
     ));
   }
 }

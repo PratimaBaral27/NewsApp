@@ -6,9 +6,12 @@ import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import BreakingAPI from '../../BreakingAPI';
 import Breaking from '../BreakingNews/Breaking';
 import HotTopics from '../HotTopics/HotTopics';
-// const image = {uri :'https://democracynepal.com/wp-content/uploads/2021/08/dn.png'}
-const DailyNews = (props) => {
+import { useNavigation } from '@react-navigation/core';
+
+const DailyNews = ( props) => {
     const {data} = props
+    const navigation = useNavigation();
+     
     const image = {uri : (data && data[0].featured_image_urls.full[0]) }
         return(
             <View>
@@ -16,15 +19,15 @@ const DailyNews = (props) => {
             <View style = {styles.container}>
                 <ImageBackground style = {{width:420, height: 335,backgroundColor: '#000000', opacity:0.6}}
                 source = {image}>
-                    <FontAwesome5 name={'bars'}  style = {styles.icons} size = {25} onPress = {() => Actions.searching()}></FontAwesome5>
+                    <FontAwesome5 name={'bars'}  style = {styles.icons} size = {25} onPress = {() => navigation.navigate('Search')}></FontAwesome5>
                     {/* <FontAwesomeIcon icon="coffee" /> */}
                     <TouchableOpacity style = {styles.button}>
                     
-                <Text style = {styles.buttonText} onPress = {() => Actions.details()}>News of the day</Text>
+                <Text style = {styles.buttonText} onPress={() => navigation.navigate('Detail')}>News of the day</Text>
             </TouchableOpacity>
              <Text style = {styles.textTwo}
-              onPress = {() => Actions.searching()}> {data && data[0].title.rendered}</Text>           
-              <Text style = {styles.textThree} onPress = {() => Actions.category()}>Learn More</Text>
+              onPress = {() => navigation.navigate('Detail')}> {data && data[0].title.rendered}</Text>           
+              <Text style = {styles.textThree} onPress = {() => navigation.navigate('Search')}>Learn More</Text>
                 </ImageBackground>
                 
 

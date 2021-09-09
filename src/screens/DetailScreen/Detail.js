@@ -1,24 +1,26 @@
 import React from 'react';
 
-import { Text,  StyleSheet, ImageBackground,ScrollView,TouchableOpacity} from 'react-native';
+import { Text,  StyleSheet, ImageBackground,ScrollView,TouchableOpacity, Dimensions} from 'react-native';
 
 import newsApi from '../newsApi';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
-import {Actions} from 'react-native-router-flux';
+
 import HTMLView from 'react-native-htmlview'
-import { flex } from 'styled-system';
+import { useNavigation } from '@react-navigation/core';
+const {width, height} = Dimensions.get('window')
 
 const Detail = (props) =>{
     
     const {data} = props
+    const navigation = useNavigation();
     
     const image = {uri : (data && data[0].featured_image_urls.full[0]) }
     
     
         return( 
             <ScrollView>
-                <ImageBackground source ={image} style = {{width:420, height: 399,backgroundColor: '#000000', opacity:0.5}}>
-                <FontAwesome5 name={'arrow-left'}  style = {styles.icons} size = {25} color = 'white' onPress = {() => Actions.landing()}></FontAwesome5>
+                <ImageBackground source ={image} style = {{width:width, height: 399,backgroundColor: '#000000', opacity:0.5}}>
+                <FontAwesome5 name={'arrow-left'}  style = {styles.icons} size = {25} color = 'white' onPress = {() => navigation.navigate('Main')}></FontAwesome5>
                    <TouchableOpacity style = {styles.button}>
                        <Text style = {styles.buttonText}>{data && data[0].type}</Text>
                    </TouchableOpacity>

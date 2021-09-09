@@ -1,14 +1,15 @@
 import React, {useState, useEffect} from 'react';
-import { Text, View, StyleSheet, FlatList, Image } from 'react-native';
+import { Text, View, StyleSheet, FlatList, Image, TouchableOpacity } from 'react-native';
 import HotTopicsAPI from '../HotTopicsAPI';
 import SearchBar from 'react-native-dynamic-search-bar';
-
+import { useNavigation} from '@react-navigation/core'
 const Politics = (props) => {
     const[search, setSearch] = useState('');
     const [filterData, setfilterData] = useState([]);
     const [masterData, setMasterData] = useState([]);
 
     const {data} = props 
+    navigation = useNavigation();
 
     useEffect(() => {
    setfilterData(data);
@@ -36,6 +37,7 @@ const Politics = (props) => {
     
 
     const ItemView = ({item}) => (
+      <TouchableOpacity onPress = {() => navigation.navigate('CategoryDetails',{item1: item}) }>
         
             <View style = {styles.itemBox}>
                  <Image style = {{height: 100, width: 100,borderRadius: 15}} source = {{uri: (item.featured_image_urls.full[0])}}></Image>
@@ -45,6 +47,7 @@ const Politics = (props) => {
                   <Text style = {styles.textTwo}>{item.date}</Text> 
                </View>
              </View>
+             </TouchableOpacity>
 
     );
     

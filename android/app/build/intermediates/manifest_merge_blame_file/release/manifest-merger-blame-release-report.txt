@@ -53,24 +53,6 @@
 30-->/Users/pratima/Desktop/NewsBitsPanda/android/app/src/main/AndroidManifest.xml:21:23-70
 31            </intent-filter>
 32        </activity>
-33
-34        <provider
-34-->[:react-native-webview] /Users/pratima/Desktop/NewsBitsPanda/node_modules/react-native-webview/android/build/intermediates/library_manifest/release/AndroidManifest.xml:12:9-20:20
-35            android:name="com.reactnativecommunity.webview.RNCWebViewFileProvider"
-35-->[:react-native-webview] /Users/pratima/Desktop/NewsBitsPanda/node_modules/react-native-webview/android/build/intermediates/library_manifest/release/AndroidManifest.xml:13:13-83
-36            android:authorities="com.newsbitspanda.fileprovider"
-36-->[:react-native-webview] /Users/pratima/Desktop/NewsBitsPanda/node_modules/react-native-webview/android/build/intermediates/library_manifest/release/AndroidManifest.xml:14:13-64
-37            android:exported="false"
-37-->[:react-native-webview] /Users/pratima/Desktop/NewsBitsPanda/node_modules/react-native-webview/android/build/intermediates/library_manifest/release/AndroidManifest.xml:15:13-37
-38            android:grantUriPermissions="true" >
-38-->[:react-native-webview] /Users/pratima/Desktop/NewsBitsPanda/node_modules/react-native-webview/android/build/intermediates/library_manifest/release/AndroidManifest.xml:16:13-47
-39            <meta-data
-39-->[:react-native-webview] /Users/pratima/Desktop/NewsBitsPanda/node_modules/react-native-webview/android/build/intermediates/library_manifest/release/AndroidManifest.xml:17:13-19:63
-40                android:name="android.support.FILE_PROVIDER_PATHS"
-40-->[:react-native-webview] /Users/pratima/Desktop/NewsBitsPanda/node_modules/react-native-webview/android/build/intermediates/library_manifest/release/AndroidManifest.xml:18:17-67
-41                android:resource="@xml/file_provider_paths" />
-41-->[:react-native-webview] /Users/pratima/Desktop/NewsBitsPanda/node_modules/react-native-webview/android/build/intermediates/library_manifest/release/AndroidManifest.xml:19:17-60
-42        </provider>
-43    </application>
-44
-45</manifest>
+33    </application>
+34
+35</manifest>

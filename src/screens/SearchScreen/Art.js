@@ -1,19 +1,23 @@
 import React, {useState, useEffect} from 'react';
-import { Text, View, StyleSheet, FlatList, Image } from 'react-native';
+import { Text, View, StyleSheet, FlatList, Image,TouchableOpacity, ActivityIndicator } from 'react-native';
 import ArtAPI from '../ArtAPI';
 import SearchBar from 'react-native-dynamic-search-bar';
+import { useNavigation } from '@react-navigation/core';
 
 const Art = (props) => {
     const[search, setSearch] = useState('');
     const [filterData, setfilterData] = useState([]);
     const [masterData, setMasterData] = useState([]);
+    
 
     const {data} = props 
+    navigation = useNavigation();
 
     useEffect(() => {
    setfilterData(data);
-   console.log(filterData)
+   
    setMasterData(data);
+   
     }, []);
 
     const searchFilter = (text) => {
@@ -36,7 +40,7 @@ const Art = (props) => {
     
 
     const ItemView = ({item}) => (
-        
+      <TouchableOpacity onPress = {() => navigation.navigate('CategoryDetails',{item1: item}) }>
             <View style = {styles.itemBox}>
                  <Image style = {{height: 100, width: 100,borderRadius: 15}} source = {{uri: (item.featured_image_urls.full[0])}}></Image>
                  <View style = {styles.textBox}>
@@ -45,6 +49,7 @@ const Art = (props) => {
                   <Text style = {styles.textTwo}>{item.date}</Text> 
                </View>
              </View>
+             </TouchableOpacity>
 
     );
     
@@ -66,7 +71,7 @@ const Art = (props) => {
                underlineColorAndroid = "transparent"
                onChangeText={(text) => searchFilter(text)}
                  />
-                     
+                  
                  <FlatList
                     data = {filterData}
                     keyExtractor = {(item, index) => index.toString()}
@@ -74,6 +79,7 @@ const Art = (props) => {
                     renderItem = {ItemView}
 
                   />
+        
                 </View>
             
         );
