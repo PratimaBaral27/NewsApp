@@ -10,16 +10,16 @@ const CategoryDetails = ({route}) => {
     const { item1 } = route.params;
     return(
         <ScrollView>
-            <ImageBackground source = {{uri: (item1.featured_image_urls.full[0])}} style = {{width:width, height: 399,backgroundColor: '#000000', opacity:0.6}}> 
-            <FontAwesome5 name={'arrow-left'}  style = {styles.icons} size = {25} color = 'white' onPress = {() => navigation.navigate('Search')}></FontAwesome5>
+            <ImageBackground source = {{uri: (item1.featured_image_urls.full[0])}} style = {{width:width, height: 350,backgroundColor: '#000000', opacity:0.8, marginBottom:20}}> 
+            {/* <FontAwesome5 name={'arrow-left'}  style = {styles.icons} size = {25} color = 'white' onPress = {() => navigation.navigate('Search')}></FontAwesome5> */}
            <TouchableOpacity style = {styles.button}>
-            <Text style = {styles.buttonText}>{item1.type}</Text>
+            <Text style = {styles.buttonText}>Detail News</Text>
             </TouchableOpacity>
             <Text style = {styles.textTwo}>{(item1.title.rendered)}</Text>
             <Text style = {styles.textThree}>{(item1.author_info.display_name)}</Text>
             <Text style = {styles.textFour}>{item1.date}</Text> 
             </ImageBackground>
-            <HTMLView value = {item1.content.rendered} style= {styles.content} />
+            <HTMLView value = {item1.content.rendered.replace(/(\r\n|\n|\r)/gm, "")} stylesheet ={htmlViewStyles} />
 
             
         </ScrollView>
@@ -83,8 +83,21 @@ const styles = StyleSheet.create({
         marginLeft:20,
         marginRight:27,
         alignItems: 'center',
-        
+        // marginBottom:20,
+        // marginTop:20
     }
     
 });
+
+const htmlViewStyles = StyleSheet.create({
+    p: {
+        flex: 1,
+        marginLeft:27,
+        marginRight:27,
+        alignItems: 'center',
+        // marginTop: 10,
+        // marginBottom: 10,
+        fontSize: 18
+    }
+  })
 export default CategoryDetails;

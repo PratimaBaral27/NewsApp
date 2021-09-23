@@ -8,7 +8,7 @@ const Header = () => {
     navigation = useNavigation();
         return(
             <View style = {styles.header}>
-             <FontAwesome5 name={'bars'}  style = {styles.icons} size = {25} onPress = {() => navigation.navigate('Main')}></FontAwesome5>
+             {/* <FontAwesome5 name={'bars'}  style = {styles.icons} size = {25} onPress = {() => navigation.navigate('Main')}></FontAwesome5> */}
               <Text style = {styles.textOne}>Discover</Text> 
               <Text style = {styles.textTwo}>News from all over the world</Text>
             </View>                  
@@ -17,7 +17,7 @@ const Header = () => {
 const styles = StyleSheet.create({
     header: {
         
-        height: '25%',
+        height: '15%',
         width:'100%',
         backgroundColor: '#fafafa'
     },
@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
         marginLeft: 27,
         marginTop: 4,
         color: '#8C8989',
-        marginBottom: 10,
+        marginBottom: 0,
     },
     search: {
         backgroundColor: '#CCECECEC',

@@ -19,10 +19,10 @@ const Detail = (props) =>{
     
         return( 
             <ScrollView>
-                <ImageBackground source ={image} style = {{width:width, height: 399,backgroundColor: '#000000', opacity:0.5}}>
-                <FontAwesome5 name={'arrow-left'}  style = {styles.icons} size = {25} color = 'white' onPress = {() => navigation.navigate('Main')}></FontAwesome5>
+                <ImageBackground source ={image} style = {{width:width, height: 350,backgroundColor: '#000000', opacity:0.8, marginBottom:20}}>
+                {/* <FontAwesome5 name={'arrow-left'}  style = {styles.icons} size = {25} color = 'white' onPress = {() => navigation.navigate('Main')}></FontAwesome5> */}
                    <TouchableOpacity style = {styles.button}>
-                       <Text style = {styles.buttonText}>{data && data[0].type}</Text>
+                       <Text style = {styles.buttonText}>Detail News</Text>
                    </TouchableOpacity>
 
                   <Text style = {styles.textTwo}>{data && data[0].title.rendered}</Text> 
@@ -30,7 +30,7 @@ const Detail = (props) =>{
                  <Text style = {styles.textFour}>{data && data[0].date}</Text> 
                  </ImageBackground> 
                 
-                <HTMLView value = {data && data[0].content.rendered} style= {styles.content} />
+                <HTMLView  value = {data && data[0].content.rendered.replace(/(\r\n|\n|\r)/gm, "")} stylesheet = {htmlViewStyles} />
              </ScrollView>
             
         );         
@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
         alignItems: "center",
         justifyContent: 'center',
         marginLeft: 27,
-        marginTop:170,
+        marginTop:160,
         backgroundColor: '#C4C4C4',
         height: 30,      
     },
@@ -88,13 +88,19 @@ const styles = StyleSheet.create({
         textAlign: 'right',
         
     },
-    content:{
-        flex: 1,
-        marginLeft:20,
-        marginRight:27,
-        alignItems: 'center',
-        
-    }
+    
     
 });
+
+const htmlViewStyles = StyleSheet.create({
+    p: {
+        flex: 1,
+        marginLeft:27,
+        marginRight:27,
+        alignItems: 'center',
+        // marginTop: 10,
+        // marginBottom: 10,
+        fontSize: 18
+    }
+  })
 export default newsApi(Detail);

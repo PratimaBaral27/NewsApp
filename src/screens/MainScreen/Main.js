@@ -10,16 +10,16 @@ const Main = () =>{
     
         return( 
             
-            <ScrollView>
+            <ScrollView style = {styles.container}>
            
                  <DailyNews />
-                 <Text style = {styles.textFour}>Trending News                                                    More</Text>
+                 <Text style = {styles.textFour}>Trending News                                               More</Text>
                 <TrendingNews />
                  
-             <Text style = {styles.textFour}>Breaking News                                                    More</Text>
+             <Text style = {styles.textFive}>Breaking News                                              More</Text>
                 <Breaking />
 
-                <Text style = {styles.textFour}>Hot Topics                                                              More</Text>
+                <Text style = {styles.textFour}>Hot Topics                                                        More</Text>
             <HotTopics /> 
                  </ScrollView>
            
@@ -28,20 +28,25 @@ const Main = () =>{
 }
 const styles = StyleSheet.create({
     container: {
-        
+        width:'100%',
+        height: '100%',
         backgroundColor: '#fafafa'
     },
     textFour:{
-        fontSize: 16,
+        fontSize: 17,
         fontWeight: '700',
         marginLeft: 27,
-        marginTop: 25,
+        marginTop: 30,
+        
 
     },
     textFive:{
-        fontSize: 16,
+        fontSize: 17,
         fontWeight: '700',
         marginLeft: 27,
+        color: 'gray',
+        marginTop: 30,
+       
        
 
     }

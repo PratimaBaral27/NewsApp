@@ -1,9 +1,11 @@
 import { NavigationContainer } from '@react-navigation/native';
 import React, {useState, useEffect} from 'react';
-import { Text, ScrollView,View, StyleSheet, FlatList, Image, TouchableOpacity, ActivityIndicator } from 'react-native';
+import { Text, ScrollView,View, StyleSheet, FlatList, Image, TouchableOpacity, ActivityIndicator,Dimensions } from 'react-native';
 import { useNavigation} from '@react-navigation/core'
 import HotTopicsAPI from '../../HotTopicsAPI';
 
+const {width, height} = Dimensions.get('window')
+  
 const numColumns = 5
 const HotTopics = (props) => {
   const [filterData, setfilterData] = useState([]);
@@ -25,11 +27,11 @@ const HotTopics = (props) => {
          <TouchableOpacity onPress = {() => navigation.navigate('Details',{items: item}) }>
             <View>
 
-                 <Image style = {{height: 100, width: 180,borderRadius: 15}} source = {{uri: (item.featured_image_urls.full[0])}}></Image>
+                 <Image style = {{height: 100, width: 180,borderRadius: 15, margin:12}} source = {{uri: (item.featured_image_urls.full[0])}}></Image>
                  
                  <Text style = {styles.title}>{item.title.rendered}</Text> 
-                 <Text style = {styles.textTwo}>{item.author_info.display_name}</Text>
-                  <Text style = {styles.textTwo}>{item.date}</Text> 
+                 {/* <Text style = {styles.textTwo}>{item.author_info.display_name}</Text>
+                  <Text style = {styles.textTwo}>{item.date}</Text>  */}
                
              </View>
              </TouchableOpacity>
@@ -68,70 +70,16 @@ const HotTopics = (props) => {
 const styles = StyleSheet.create({
     container: {
       width:'100%',
-      height: '65%',
-      padding: 20,
-      marginRight: 27,
-
-    },
-    textInputStyle:{
-      height: 40,
-      width: 375,
-      marginTop: 0,
-      marginBottom: 15,
-      borderWidth: 1,
-      paddingLeft : 20,
-      borderColor: 'transparent',
-      backgroundColor: '#E5E5E5',
-      borderRadius: 10
-      
-    },
-
-  textBox: {
-    width: '50%',
-    padding: 15,
-    marginBottom:25,
-    flex: 1,
-    backgroundColor: '#fafafa',
-    alignItems: 'flex-end',
-    justifyContent: 'flex-end',
-    fontWeight:'700',
-    },
-
-    image:{
-      width: 180,
+      height: 250,
+      padding: 7,
       
       
-     },
-    
-    wrapButton:{
-        alignItems: 'center',
-        marginHorizontal:50,
-        padding: 20,
-        backgroundColor:'orange'
+
     },
-    itemBox: {
-      flex: 1,
-      backgroundColor: '#fafafa',
-      alignItems: 'flex-start',
-      justifyContent: 'flex-start',
-      width:'100%',
-      flex:1,
-      flexDirection: 'row',
-  },
- 
-    txtFontSize:{
-        fontSize: 20
-    },
-    item: {
-      backgroundColor: '#f9c2ff',
-      padding: 10,
-      borderRadius:10,
-      borderWidth: 0.5,
-      justifyContent:'center'
-    },
-    title: {
-      fontSize: 14,
-      width: 200
+        title: {
+      fontSize: 15,
+      width: 176,
+      marginLeft: 20
     },
     textTwo: {
       fontSize: 12,

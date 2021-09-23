@@ -3,12 +3,14 @@ com/newsbitspanda/ReactNativeFlipper.java
  com.newsbitspanda.ReactNativeFlipper$1
  com.newsbitspanda.ReactNativeFlipper$2
  com.newsbitspanda.ReactNativeFlipper$2$1
+com/newsbitspanda/SplashActivity.java
+ com.newsbitspanda.SplashActivity
 com/newsbitspanda/MainApplication.java
  com.newsbitspanda.MainApplication
  com.newsbitspanda.MainApplication$1
 com/newsbitspanda/BuildConfig.java
  com.newsbitspanda.BuildConfig
-com/facebook/react/PackageList.java
- com.facebook.react.PackageList
 com/newsbitspanda/MainActivity.java
  com.newsbitspanda.MainActivity
+com/facebook/react/PackageList.java
+ com.facebook.react.PackageList

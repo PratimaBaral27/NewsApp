@@ -10,16 +10,16 @@ const Details = ({route}) => {
     const { items } = route.params;
     return(
         <ScrollView>
-            <ImageBackground source = {{uri: (items.featured_image_urls.full[0])}} style = {{width:width, height: 399,backgroundColor: '#000000', opacity:0.6}}> 
-            <FontAwesome5 name={'arrow-left'}  style = {styles.icons} size = {25} color = 'white' onPress = {() => navigation.navigate('Main')}></FontAwesome5>
+            <ImageBackground source = {{uri: (items.featured_image_urls.full[0])}} style = {{width:width, height: 350, backgroundColor: '#000000', opacity:0.8, marginBottom:20}}> 
+            {/* <FontAwesome5 name={'arrow-left'}  style = {styles.icons} size = {25} color = 'white' onPress = {() => navigation.navigate('Main')}></FontAwesome5> */}
            <TouchableOpacity style = {styles.button}>
-            <Text style = {styles.buttonText}>{items.type}</Text>
+            <Text style = {styles.buttonText}>Detail News</Text>
             </TouchableOpacity>
             <Text style = {styles.textTwo}>{(items.title.rendered)}</Text>
             <Text style = {styles.textThree}>{(items.author_info.display_name)}</Text>
             <Text style = {styles.textFour}>{items.date}</Text> 
             </ImageBackground>
-            <HTMLView value = {items.content.rendered} style= {styles.content} />
+            <HTMLView  value = {items.content.rendered.replace(/(\r\n|\n|\r)/gm, "")} stylesheet ={htmlViewStyles} />
 
             
         </ScrollView>
@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
         alignItems: "center",
         justifyContent: 'center',
         marginLeft: 27,
-        marginTop:170,
+        marginTop:160,
         backgroundColor: '#C4C4C4',
         height: 30,      
     },
@@ -83,8 +83,22 @@ const styles = StyleSheet.create({
         marginLeft:20,
         marginRight:27,
         alignItems: 'center',
+        marginTop:15,
+        marginBottom: 15
         
     }
     
 });
+
+const htmlViewStyles = StyleSheet.create({
+    p: {
+        flex: 1,
+        marginLeft:27,
+        marginRight:27,
+        alignItems: 'center',
+        // marginTop: 25,
+        // marginBottom: 15,
+        fontSize: 18
+    }
+  })
 export default Details;

@@ -17,9 +17,9 @@ const DailyNews = ( props) => {
             <View>
             
             <View style = {styles.container}>
-                <ImageBackground style = {{width:420, height: 335,backgroundColor: '#000000', opacity:0.6}}
+                <ImageBackground style = {{width:420, height: 350,backgroundColor: '#000000', opacity:0.8}}
                 source = {image}>
-                    <FontAwesome5 name={'bars'}  style = {styles.icons} size = {25} onPress = {() => navigation.navigate('Search')}></FontAwesome5>
+                    {/* <FontAwesome5 name={'bars'}  style = {styles.icons} size = {25} onPress = {() => navigation.navigate('Search')}></FontAwesome5> */}
                     {/* <FontAwesomeIcon icon="coffee" /> */}
                     <TouchableOpacity style = {styles.button}>
                     
@@ -27,7 +27,9 @@ const DailyNews = ( props) => {
             </TouchableOpacity>
              <Text style = {styles.textTwo}
               onPress = {() => navigation.navigate('Detail')}> {data && data[0].title.rendered}</Text>           
-              <Text style = {styles.textThree} onPress = {() => navigation.navigate('Search')}>Learn More</Text>
+              {/* <Text style = {styles.textThree} onPress = {() => navigation.navigate('Search')}>Learn More</Text> */}
+              <Text style = {styles.textThree}>{(data && data[0].author_info.display_name)}</Text>
+              <Text style = {styles.textFour}>{data && data[0].date}</Text> 
                 </ImageBackground>
                 
 
@@ -59,7 +61,7 @@ const styles = StyleSheet.create({
         alignItems: "center",
         justifyContent: 'center',
         marginLeft: 37,
-        marginTop:129,
+        marginTop:179,
         backgroundColor: '#A9A9A9',
         height: 30,      
     },
@@ -71,10 +73,10 @@ const styles = StyleSheet.create({
         justifyContent: 'center'
     },
     textTwo: {
-        fontSize: 14,
+        fontSize: 16,
         fontWeight: '700',
         color: "#ffffff",
-        marginTop:25,
+        marginTop:12,
         marginLeft: 33,
         marginRight:47
     },
@@ -82,8 +84,17 @@ const styles = StyleSheet.create({
         fontSize: 12,
         fontWeight:'700',
         color: "#ffffff",
-        marginTop: 25,
+        marginTop: 12,
         marginLeft:37
+    },
+    textFour:{
+        fontSize: 12,
+        fontWeight:'700',
+        color: "#ffffff",
+        marginTop: -17,
+        marginRight:37,
+        textAlign: 'right',
+        
     },
    
 });

@@ -1,3 +1,5 @@
+com/newsbitspanda/SplashActivity.java
+ com.newsbitspanda.SplashActivity
 com/newsbitspanda/MainApplication.java
  com.newsbitspanda.MainApplication
  com.newsbitspanda.MainApplication$1

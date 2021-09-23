@@ -63,7 +63,7 @@ const Trending = (props) => {
         return (
             
                 <View style = {styles.container}>
-                
+                  
                <SearchBar style = {styles.textInputStyle}
                value = {search}
                placeholder="Search"

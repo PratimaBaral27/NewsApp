@@ -19,7 +19,7 @@
 13-->[com.facebook.flipper:flipper:0.75.1] /Users/pratima/.gradle/caches/transforms-2/files-2.1/a8f6015f96666ab8d93bfe5b64998bc8/jetified-flipper-0.75.1/AndroidManifest.xml:16:22-73
 14
 15    <application
-15-->/Users/pratima/Desktop/NewsBitsPanda/android/app/src/main/AndroidManifest.xml:6:5-24:19
+15-->/Users/pratima/Desktop/NewsBitsPanda/android/app/src/main/AndroidManifest.xml:6:5-34:19
 16        android:name="com.newsbitspanda.MainApplication"
 16-->/Users/pratima/Desktop/NewsBitsPanda/android/app/src/main/AndroidManifest.xml:7:7-38
 17        android:allowBackup="false"
@@ -41,28 +41,41 @@
 25-->/Users/pratima/Desktop/NewsBitsPanda/android/app/src/debug/AndroidManifest.xml:11:9-86
 25-->/Users/pratima/Desktop/NewsBitsPanda/android/app/src/debug/AndroidManifest.xml:11:19-83
 26        <activity
-26-->/Users/pratima/Desktop/NewsBitsPanda/android/app/src/main/AndroidManifest.xml:13:7-23:18
-27            android:name="com.newsbitspanda.MainActivity"
-27-->/Users/pratima/Desktop/NewsBitsPanda/android/app/src/main/AndroidManifest.xml:14:9-37
-28            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|uiMode"
-28-->/Users/pratima/Desktop/NewsBitsPanda/android/app/src/main/AndroidManifest.xml:16:9-86
-29            android:label="@string/app_name"
-29-->/Users/pratima/Desktop/NewsBitsPanda/android/app/src/main/AndroidManifest.xml:15:9-41
-30            android:launchMode="singleTask"
-30-->/Users/pratima/Desktop/NewsBitsPanda/android/app/src/main/AndroidManifest.xml:17:9-40
-31            android:windowSoftInputMode="adjustResize" >
-31-->/Users/pratima/Desktop/NewsBitsPanda/android/app/src/main/AndroidManifest.xml:18:9-51
-32            <intent-filter>
-32-->/Users/pratima/Desktop/NewsBitsPanda/android/app/src/main/AndroidManifest.xml:19:9-22:25
-33                <action android:name="android.intent.action.MAIN" />
-33-->/Users/pratima/Desktop/NewsBitsPanda/android/app/src/main/AndroidManifest.xml:20:13-65
-33-->/Users/pratima/Desktop/NewsBitsPanda/android/app/src/main/AndroidManifest.xml:20:21-62
-34
-35                <category android:name="android.intent.category.LAUNCHER" />
-35-->/Users/pratima/Desktop/NewsBitsPanda/android/app/src/main/AndroidManifest.xml:21:13-73
-35-->/Users/pratima/Desktop/NewsBitsPanda/android/app/src/main/AndroidManifest.xml:21:23-70
-36            </intent-filter>
-37        </activity>
-38    </application>
-39
-40</manifest>
+26-->/Users/pratima/Desktop/NewsBitsPanda/android/app/src/main/AndroidManifest.xml:14:7-22:15
+27            android:name="com.newsbitspanda.SplashActivity"
+27-->/Users/pratima/Desktop/NewsBitsPanda/android/app/src/main/AndroidManifest.xml:15:8-38
+28            android:label="@string/app_name"
+28-->/Users/pratima/Desktop/NewsBitsPanda/android/app/src/main/AndroidManifest.xml:17:8-40
+29            android:theme="@style/SplashTheme" >
+29-->/Users/pratima/Desktop/NewsBitsPanda/android/app/src/main/AndroidManifest.xml:16:9-43
+30            <intent-filter>
+30-->/Users/pratima/Desktop/NewsBitsPanda/android/app/src/main/AndroidManifest.xml:18:8-21:22
+31                <action android:name="android.intent.action.MAIN" />
+31-->/Users/pratima/Desktop/NewsBitsPanda/android/app/src/main/AndroidManifest.xml:19:8-60
+31-->/Users/pratima/Desktop/NewsBitsPanda/android/app/src/main/AndroidManifest.xml:19:16-57
+32
+33                <category android:name="android.intent.category.LAUNCHER" />
+33-->/Users/pratima/Desktop/NewsBitsPanda/android/app/src/main/AndroidManifest.xml:20:6-66
+33-->/Users/pratima/Desktop/NewsBitsPanda/android/app/src/main/AndroidManifest.xml:20:16-63
+34            </intent-filter>
+35        </activity>
+36        <activity
+36-->/Users/pratima/Desktop/NewsBitsPanda/android/app/src/main/AndroidManifest.xml:24:7-33:18
+37            android:name="com.newsbitspanda.MainActivity"
+37-->/Users/pratima/Desktop/NewsBitsPanda/android/app/src/main/AndroidManifest.xml:25:9-37
+38            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|uiMode"
+38-->/Users/pratima/Desktop/NewsBitsPanda/android/app/src/main/AndroidManifest.xml:27:9-86
+39            android:exported="true"
+39-->/Users/pratima/Desktop/NewsBitsPanda/android/app/src/main/AndroidManifest.xml:31:9-32
+40            android:label="@string/app_name"
+40-->/Users/pratima/Desktop/NewsBitsPanda/android/app/src/main/AndroidManifest.xml:26:9-41
+41            android:launchMode="singleTask"
+41-->/Users/pratima/Desktop/NewsBitsPanda/android/app/src/main/AndroidManifest.xml:29:9-40
+42            android:screenOrientation="portrait"
+42-->/Users/pratima/Desktop/NewsBitsPanda/android/app/src/main/AndroidManifest.xml:28:9-47
+43            android:windowSoftInputMode="adjustResize" >
+43-->/Users/pratima/Desktop/NewsBitsPanda/android/app/src/main/AndroidManifest.xml:30:9-51
+44        </activity>
+45    </application>
+46
+47</manifest>

@@ -23,6 +23,8 @@ import com.th3rdwave.safeareacontext.SafeAreaContextPackage;
 import com.swmansion.rnscreens.RNScreensPackage;
 // react-native-spinkit
 import com.react.rnspinkit.RNSpinkitPackage;
+// react-native-splash-screen
+import org.devio.rn.splashscreen.SplashScreenReactPackage;
 // react-native-svg
 import com.horcrux.svg.SvgPackage;
 // react-native-vector-icons
@@ -78,6 +80,7 @@ public class PackageList {
       new SafeAreaContextPackage(),
       new RNScreensPackage(),
       new RNSpinkitPackage(),
+      new SplashScreenReactPackage(),
       new SvgPackage(),
       new VectorIconsPackage()
     ));

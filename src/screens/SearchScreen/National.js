@@ -101,10 +101,6 @@ const styles = StyleSheet.create({
       
     },
     
-    
-   
-  
-
   textBox: {
     width: '50%',
     padding: 10,
