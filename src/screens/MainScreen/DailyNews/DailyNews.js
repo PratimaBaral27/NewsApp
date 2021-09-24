@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { Image,ImageBackground, View,Text, StyleSheet, Button,TouchableOpacity} from 'react-native';
 import {Actions} from 'react-native-router-flux';
-import newsApi from '../../newsApi';
+import NewsApi from '../../NewsApi';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import BreakingAPI from '../../BreakingAPI';
 import Breaking from '../BreakingNews/Breaking';
@@ -98,4 +98,4 @@ const styles = StyleSheet.create({
     },
    
 });
-export default newsApi(DailyNews);
+export default NewsApi(DailyNews);

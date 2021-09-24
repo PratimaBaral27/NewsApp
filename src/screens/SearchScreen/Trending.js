@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import { Text, View, StyleSheet, FlatList,TouchableOpacity, Image } from 'react-native';
-import newsApi from '../newsApi';
+import NewsApi from '../NewsApi';
 import SearchBar from 'react-native-dynamic-search-bar';
 import { useNavigation } from '@react-navigation/core';
 
@@ -166,4 +166,4 @@ const styles = StyleSheet.create({
       height:100,
     }
   });
-  export default newsApi(Trending);
+  export default NewsApi(Trending);

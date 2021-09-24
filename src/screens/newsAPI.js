@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react'
 import { View } from 'react-native';
 
- function newsApi (WrappedComponent){
-   function NewsApi(){
+ function NewsApi (WrappedComponent){
+   function newsApi(){
     const [isLoading, setLoading] = useState(true);
     const [data, setData] = useState([]);
     
@@ -34,8 +34,8 @@ import { View } from 'react-native';
       );
       
               }
-              return NewsApi;
+              return newsApi;
 
       
     }
-    export default newsApi;
+    export default NewsApi;

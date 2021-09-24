@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Text,  StyleSheet, ImageBackground,ScrollView,TouchableOpacity, Dimensions} from 'react-native';
 
-import newsApi from '../newsApi';
+import NewsApi from '../NewsApi';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 
 import HTMLView from 'react-native-htmlview'
@@ -103,4 +103,4 @@ const htmlViewStyles = StyleSheet.create({
         fontSize: 18
     }
   })
-export default newsApi(Detail);
+export default NewsApi(Detail);

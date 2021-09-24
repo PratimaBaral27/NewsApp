@@ -1,6 +1,6 @@
 import React from 'react'
 import { StyleSheet, Text, View,Image, ImageBackground, TouchableHighlight, TouchableOpacity } from 'react-native'
-import newsApi from '../../newsApi';
+import NewsApi from '../../NewsApi';
 import HTMLView from 'react-native-htmlview';
 import {Actions} from 'react-native-router-flux';
 
@@ -187,4 +187,4 @@ const styles = StyleSheet.create({
         
     }
 });
-export default newsApi(Boxes);
+export default NewsApi(Boxes);

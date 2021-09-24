@@ -2,7 +2,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import React, {useState, useEffect} from 'react';
 import { Text, ScrollView,View, StyleSheet, FlatList, Image,TouchableOpacity, ActivityIndicator } from 'react-native';
 
-import newsApi from '../../newsApi';
+import NewsApi from '../../NewsApi';
 import { useNavigation } from '@react-navigation/core';
 import { alignItems, justifyContent } from 'styled-system';
 
@@ -92,4 +92,4 @@ const styles = StyleSheet.create({
     
     
   });
-  export default newsApi(TrendingNews);
+  export default NewsApi(TrendingNews);
